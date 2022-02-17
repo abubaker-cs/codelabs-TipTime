@@ -150,6 +150,7 @@
                 app:layout_constraintTop_toBottomOf="@id/calculate_button"
                 tools:text="Tip Amount: $10"
                 />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
