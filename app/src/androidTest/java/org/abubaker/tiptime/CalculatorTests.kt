@@ -27,12 +27,15 @@ class CalculatorTests {
         onView(withId(R.id.cost_of_service_edit_text))
             .perform(typeText("50.00"))
 
+        // Testing to select 18.0%
+        onView(withId(R.id.option_eighteen_percent)).perform(click())
+
         // Then we are programmatically pressing the "Calculate Button" to perform the calculation.
         onView(withId(R.id.calculate_button)).perform(click())
 
         // No, we are validating if the end result is = 10.00
         onView(withId(R.id.tip_result))
-            .check(matches(withText(containsString("10.00"))))
+            .check(matches(withText(containsString("9.00"))))
 
     }
 }
