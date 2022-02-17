@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     private fun calculateTip() {
 
         // We are storing the user provided cost of the service and converting it toString()
-        val stringInTextField = mBinding.costOfService.text.toString()
+        val stringInTextField = mBinding.costOfServiceEditText.text.toString()
 
         // Parses the string as a [Double] number and returns the result
         // or `null` if the string is not a valid representation of a number.
