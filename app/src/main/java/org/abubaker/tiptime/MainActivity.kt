@@ -1,7 +1,11 @@
 package org.abubaker.tiptime
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import org.abubaker.tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
@@ -22,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         //
         mBinding.calculateButton.setOnClickListener {
             calculateTip()
+        }
+
+        // Hide the keyboard once the ENTER button will be pressed.
+        mBinding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ ->
+            handleKeyEvent(view, keyCode)
         }
 
     }
@@ -75,6 +84,26 @@ class MainActivity : AppCompatActivity() {
 
         // Update the #tip_mount textField with the formatted tip value.
         mBinding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+
+    }
+
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
+
+        //
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+
+            // Get reference to the input manager
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+            // Hide the keyboard
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+
+            return true
+        }
+
+        //
+        return false
 
     }
 }
