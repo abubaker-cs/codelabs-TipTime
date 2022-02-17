@@ -15,7 +15,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:padding="16dp"
             tools:context=".MainActivity"
             >
@@ -41,6 +41,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 >
 
+                <!-- We will be using #cost_of_service_edit_text to test it using Espresso in the InstrumentationTest -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cost_of_service_edit_text"
                     android:layout_width="match_parent"
